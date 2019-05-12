@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'hbs')
 hbs.registerPartials(path.join(__dirname, '../views/partials'))
@@ -61,6 +62,6 @@ app.get('/*', (req, res) => {
         errorMessage: 'Page not found'})
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is up on port 3000.')
 })
